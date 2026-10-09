@@ -76,7 +76,7 @@ const CreatePost = () => {
         if (!query.trim()) return;
         setMusicSearching(true);
         try {
-            const res = await fetch(`/api/music/search?q=${encodeURIComponent(query)}`);
+            const res = await fetch(`${import.meta.env.VITE_API_URL || ''}/api/music/search?q=${encodeURIComponent(query)}`);
             const data = await res.json();
             setMusicResults(data.results || []);
         } catch (e) {
